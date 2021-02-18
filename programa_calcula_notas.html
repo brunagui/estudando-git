@@ -1,0 +1,51 @@
+<meta charset="UTF-8">
+
+<h1>Médias dos alunos</h1>
+
+<script>
+
+
+var qtdNotas = prompt("Quantas notas são?");
+
+var numAlunos = parseInt(prompt("Quantidade de alunos na classe"));
+var notasArray = []; //precisa estar fora do loop, ou cada vez que o loop recomeçasse, ele estaria vazio
+var nomesAlunos = [];
+var cadaNota = [];
+var contador = 1;
+
+while(contador <= numAlunos) {
+
+	var nome = prompt("Qual é o nome do aluno?");
+	nomesAlunos.push(nome);
+
+	var somaNotas = 0;
+	var incremento = 1;
+	var notasAluno = [];
+
+	for (var posicao = 0; posicao < qtdNotas; posicao++) {
+
+		var nota = parseFloat(prompt("Qual é a nota " + incremento + " de " + nome + "?"));
+		notasAluno.push(nota);
+		incremento++;
+		somaNotas = somaNotas + nota;
+	}
+
+	cadaNota.push(notasAluno);
+	
+	var mediaNotas = somaNotas/qtdNotas;
+	
+	notasArray.push(mediaNotas);
+
+	contador++;
+
+}
+
+console.log(cadaNota)
+
+for(var linha = 0; linha < numAlunos; linha++) {
+
+	document.write("As notas de " + nomesAlunos[linha] + " são: " + cadaNota[linha] + ". Média é: " + notasArray[linha] + ".<br>" );
+
+	}
+
+</script>
